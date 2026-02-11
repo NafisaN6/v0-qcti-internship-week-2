@@ -5,12 +5,30 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+const navLinks = [
+  { href: "/#tips", label: "Tips" },
+  { href: "/#styles", label: "Parenting Styles" },
+  { href: "/#about", label: "About" },
+]
+
 export function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+  function toggleMobileMenu() {
+    setIsMobileMenuOpen((prev) => !prev)
+  }
+
+  function closeMobileMenu() {
+    setIsMobileMenuOpen(false)
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <nav
+        className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+        aria-label="Main navigation"
+      >
+        {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
             <svg
@@ -36,27 +54,21 @@ export function Navbar() {
           </span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
-          <Link
-            href="/#tips"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Tips
-          </Link>
-          <Link
-            href="/#styles"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            Parenting Styles
-          </Link>
-          <Link
-            href="/#about"
-            className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-          >
-            About
-          </Link>
-        </div>
+        {/* Desktop Links */}
+        <ul className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
+        {/* Desktop Actions */}
         <div className="hidden items-center gap-3 md:flex">
           <Button variant="ghost" asChild>
             <Link href="/signin">Sign In</Link>
@@ -66,13 +78,16 @@ export function Navbar() {
           </Button>
         </div>
 
+        {/* Mobile Toggle */}
         <button
           type="button"
+          onClick={toggleMobileMenu}
           className="md:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-label="Toggle menu"
+          aria-expanded={isMobileMenuOpen}
+          aria-controls="mobile-menu"
         >
-          {mobileOpen ? (
+          {isMobileMenuOpen ? (
             <X className="h-6 w-6 text-foreground" />
           ) : (
             <Menu className="h-6 w-6 text-foreground" />
@@ -80,39 +95,34 @@ export function Navbar() {
         </button>
       </nav>
 
-      {mobileOpen && (
-        <div className="border-t border-border bg-background px-6 pb-6 pt-4 md:hidden">
-          <div className="flex flex-col gap-4">
-            <Link
-              href="/#tips"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileOpen(false)}
-            >
-              Tips
-            </Link>
-            <Link
-              href="/#styles"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileOpen(false)}
-            >
-              Parenting Styles
-            </Link>
-            <Link
-              href="/#about"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setMobileOpen(false)}
-            >
-              About
-            </Link>
-            <div className="flex flex-col gap-2 pt-2">
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div
+          id="mobile-menu"
+          className="border-t border-border bg-background px-6 pb-6 pt-4 md:hidden"
+        >
+          <ul className="flex flex-col gap-4">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={closeMobileMenu}
+                  className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+
+            <li className="flex flex-col gap-2 pt-2">
               <Button variant="outline" asChild>
                 <Link href="/signin">Sign In</Link>
               </Button>
               <Button asChild>
                 <Link href="/signup">Get Started</Link>
               </Button>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       )}
     </header>
