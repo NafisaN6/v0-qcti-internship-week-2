@@ -22,10 +22,10 @@ https://v0.app/chat/pre-parenting-app-design-tqhVEpFiaTF?ref=HP4YBB
 ---
 
 ## Deployment Steps
-1. I started with v0.app to generate the initial Next.js project   
-2. I then pushed code to GitHub
-3. After making the project, I made some manual changes to improve the structure and accessibility within the website.  
-4. I connected GitHub repo to Vercel and deployed the app via default Vercel build  
+1. I connected Github with Vercel and made a repository 
+2. I then went with v0.app to generate the initial Next.js project
+3. I then pushed code to GitHub
+4. After making the project, I made some manual changes to improve the structure and accessibility within the website.  
 
 
 ---
