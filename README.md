@@ -38,10 +38,12 @@ I chose this option because it provided a quick and secure way to implement auth
 
 ## Screenshots
 ### Landing Page
-![Landing Page](Screenshot 2026-02-11 190513.png)  
+<img width="1904" height="907" alt="Screenshot 2026-02-11 190513" src="https://github.com/user-attachments/assets/a76c1214-7ee0-4d1d-bd83-c2684ea7e429" />
+513.png
 
 ### Auth Page
-![Sign In Page](Screenshot 2026-02-11 190525.png)  
+<img width="1903" height="896" alt="Screenshot 2026-02-11 190525" src="https://github.com/user-attachments/assets/bcc06212-c84a-4168-b3e9-8a83f4e6f7c8" />
+
 
 ---
 
