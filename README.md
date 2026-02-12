@@ -38,10 +38,10 @@ I chose this option because it provided a quick and secure way to implement auth
 
 ## Screenshots
 ### Landing Page
-![Landing Page](screenshots/landing.png)  <!-- Replace with your screenshot -->
+![Landing Page](screenshots/landing.png)  
 
 ### Auth Page
-![Sign In Page](screenshots/signin.png)  <!-- Replace with your screenshot -->
+![Sign In Page](Screenshot 2026-02-11 190525.png)  
 
 ---
 
