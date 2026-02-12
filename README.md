@@ -38,7 +38,7 @@ I chose this option because it provided a quick and secure way to implement auth
 
 ## Screenshots
 ### Landing Page
-![Landing Page](screenshots/landing.png)  
+![Landing Page](Screenshot 2026-02-11 190513.png)  
 
 ### Auth Page
 ![Sign In Page](Screenshot 2026-02-11 190525.png)  
